@@ -29,5 +29,13 @@ for i=1:row-1
             index = j;
         end
     end
-    C
+    temp = C(i,:);
+    C(i,:) = C(index,:);
+    C(index,:) = temp;
+    
+    for j=i+1:row
+        if C(i,i)~=0
+            lambda = 
+        end
+    end
 end

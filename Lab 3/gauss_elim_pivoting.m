@@ -34,5 +34,26 @@ for i=1:row-1
     C(index,:) = temp;
     
     for j=i+1:row
-        if C
+        if C(i,i)~=0
+            lambda = C(j,i)/C(i,i);
+            C(j,:) = C(j,:)-lambda*C(i,:);
+        else
+            fprintf("Gauss Elimination not applicable.\n");
+        end
+    end
 end
+
+n = row;
+x = zeros(n,1);
+x(n) = C(n,n+1)/C(n,n);
+
+for i=n-1:-1:1
+    sum = 0;
+    for j=i+1:n
+        sum = sum + x(j)*C(i,j);
+    end
+    x(i) = (C(i,n+1) - sum)/C(i,i);
+end
+
+fprintf("The solution is: \n");
+disp(x)
