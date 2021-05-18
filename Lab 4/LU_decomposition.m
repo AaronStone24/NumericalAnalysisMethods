@@ -37,3 +37,9 @@ for i=n-1:-1:1
     end
     x(i) = (z(i)-sum)/U(i,i);
 end
+
+fprintf("The matrices L and U are as follows:\n");
+fprintf("L: ");
+disp(L);
+fprintf("U: ");
+disp(U);

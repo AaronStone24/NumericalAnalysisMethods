@@ -2,8 +2,10 @@ A = input("Enter the Coefficient matrix: ");
 [row, col] = size(A);
 b = input("Enter the vector b: ");
 x = input("Enter the initial x: ");
+tolerance = input("Enter the tolerance: ");
 
-if inputCheck(A,b) == -1
+check = inputCheck(A,b);
+if check == -1
     return
 end
 
@@ -22,3 +24,14 @@ for i=1:n
     end
 end
 
+error = 99;
+epsilon = tolerance;
+
+while error > epsilon
+    X = D\(b-(L+U)*x);
+    error = norm(X-x)/norm(X);
+    x = X;
+end
+
+fprintf("The solution is:\n");
+disp(x);
