@@ -1,0 +1,31 @@
+clc
+clear
+
+syms x
+str = input("Enter the function in x: ",'s');
+f = str2func(['@x ',str]);
+
+a0 = inpur("Enter a0: ");
+b0 = input("Enter b0: ");
+maxIter = input("Enter the maximum iterations: \n");
+c0 = 0;
+
+if f(a0)*f(b0)<0
+    c0 = (a0+b0)/2;
+else
+    fprintf("Enter a valid interval.\n");
+    return
+end
+
+iter = 0;
+while iter <= maxIter
+    a1 = a0;
+    b1 = b0;
+    c1 = c0;
+    if f(a1)*f(c1)<0
+        b1 = c0;
+    else
+        a1 = c0;
+    end
+    c0 = 
+end
