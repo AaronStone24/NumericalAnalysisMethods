@@ -17,7 +17,7 @@ else
     return
 end
 
-iter = 0;
+iter = 1;
 while iter <= maxIter
     a1 = a0;
     b1 = b0;
